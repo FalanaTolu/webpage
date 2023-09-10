@@ -4,10 +4,19 @@ document.getElementById('currentDayOfTheWeek').innerHTML = day;
 let username = document.getElementsByTagName('h1').item(0).innerHTML;
 document.getElementsByTagName('img').item(0).setAttribute('alt', username)
 
+const updateUTCTime = () => {
+    let currentUTCTime = new Date().getTime();
+    const UTCTimeElement = document.getElementById('currentUTCTime');
+    setTimeout(updateUTCTime, 500);
+    
+    UTCTimeElement.textContent = currentUTCTime;
+}
+
+updateUTCTime();
 
 const updateUTCClock = () => {
     const now = new Date();
-    const utcTime = document.getElementById('currentUTCTime');
+    const utcTime = document.getElementById('time');
     const hoursUTC = now.getUTCHours().toString().padStart(2, '0');
     const minutesUTC = now.getUTCMinutes().toString().padStart(2, '0');
     const secondsUTC = now.getUTCSeconds().toString().padStart(2, '0');
